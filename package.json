@@ -1,0 +1,43 @@
+{
+  "name": "type-level-nn",
+  "private": true,
+  "description": "A neural network sample written in pure type-level TypeScript, just for fun!",
+  "homepage": "https://github.com/Snowflyt/ts-type-level-nn",
+  "bugs": {
+    "url": "https://github.com/Snowflyt/ts-type-level-nn/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Snowflyt/ts-type-level-nn"
+  },
+  "license": "MIT",
+  "author": "Snowflyt <gaoge011022@163.com>",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/main_runtime.ts",
+    "format": "prettier --no-error-on-unmatched-pattern --write **/*.{js,ts,json,md} *.{cjs,mjs,cts,mts}",
+    "lint": "eslint **/*.{js,ts} *.{cjs,mjs,cts,mts} --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
+    "lint:fix": "eslint --fix **/*.{js,ts} *.{cjs,mjs,cts,mts} --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
+    "test": "typroof"
+  },
+  "devDependencies": {
+    "@rivo-ts/math": "^0.0.0-dev.20240707.5",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.14.10",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-sonarjs": "^0.25.1",
+    "eslint-plugin-sort-destructure-keys": "^2.0.0",
+    "prettier": "^3.3.2",
+    "prettier-plugin-packagejson": "^2.5.0",
+    "rivo": "^0.0.0-dev.20240701",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "typroof": "^0.2.9"
+  }
+}
