@@ -14,13 +14,16 @@
   "author": "Snowflyt <gaoge011022@163.com>",
   "type": "module",
   "scripts": {
+    "checkpoints": "node scripts/checkpoints.ts",
+    "checkpoints:check": "node scripts/checkpoints.ts --check",
     "format": "prettier --no-error-on-unmatched-pattern --write \"**/*.{js,ts,json,md}\" \"*.{cjs,mjs,cts,mts}\"",
     "format:check": "prettier --no-error-on-unmatched-pattern --check \"**/*.{js,ts,json,md}\" \"*.{cjs,mjs,cts,mts}\"",
     "postinstall": "patch-package --error-on-fail",
     "lint": "eslint \"**/*.{js,ts}\" \"*.{cjs,mjs,cts,mts}\" --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
     "lint:fix": "eslint --fix \"**/*.{js,ts}\" \"*.{cjs,mjs,cts,mts}\" --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
-    "start": "tsx src/main_runtime.ts",
-    "test": "npm run test:types",
+    "start": "node src/main_runtime.ts",
+    "test": "npm run test:runtime && npm run test:types",
+    "test:runtime": "node --test src/nn_runtime.test.ts",
     "test:types": "node node_modules/typescript7/bin/tsc --noEmit",
     "test:typroof": "typroof"
   },
@@ -41,7 +44,6 @@
     "prettier": "^3.9.9",
     "prettier-plugin-packagejson": "^3.0.2",
     "rivo": "^0.0.0-dev.20240701",
-    "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript7": "npm:typescript@^7.0.2",
     "typroof": "^0.6.0"
