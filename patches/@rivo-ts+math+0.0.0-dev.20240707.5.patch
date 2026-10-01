@@ -1,0 +1,26 @@
+diff --git a/node_modules/@rivo-ts/math/internals/_Div10.d.ts b/node_modules/@rivo-ts/math/internals/_Div10.d.ts
+index 20bbf86..1bf7c17 100644
+--- a/node_modules/@rivo-ts/math/internals/_Div10.d.ts
++++ b/node_modules/@rivo-ts/math/internals/_Div10.d.ts
+@@ -20,7 +20,8 @@ import type { _StrToNum } from "./_StrToNum";
+  * ```
+  */
+ export type _Div10<N extends string, By extends string> =
+-  N extends `-${infer N}` ? `-${__Div10<N, By>}` : __Div10<N, By>;
++  N extends "0" | "-0" ? "0"
++  : N extends `-${infer N}` ? `-${__Div10<N, By>}` : __Div10<N, By>;
+ type __Div10<N extends string, By extends string> =
+   ___Div10<_ReverseString<`${N}`>, By, ""> extends infer R extends string ?
+     R extends `.${infer R}` ?
+diff --git a/node_modules/@rivo-ts/math/internals/_ReverseString.d.ts b/node_modules/@rivo-ts/math/internals/_ReverseString.d.ts
+index 7ade15a..5d7db3d 100644
+--- a/node_modules/@rivo-ts/math/internals/_ReverseString.d.ts
++++ b/node_modules/@rivo-ts/math/internals/_ReverseString.d.ts
+@@ -4,5 +4,5 @@
+  * Sig: `(s: string) => string`
+  * @private
+  */
+-export type _ReverseString<S extends string> =
+-  S extends `${infer F}${infer R}` ? `${_ReverseString<R>}${F}` : "";
++export type _ReverseString<S extends string, Result extends string = ""> =
++  S extends `${infer First}${infer Rest}` ? _ReverseString<Rest, `${First}${Result}`> : Result;

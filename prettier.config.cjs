@@ -2,6 +2,7 @@
 
 /** @satisfies {import("prettier").Config} */
 const config = {
+  plugins: ["prettier-plugin-packagejson"],
   arrowParens: "always",
   bracketSameLine: true,
   bracketSpacing: true,
