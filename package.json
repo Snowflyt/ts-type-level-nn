@@ -16,6 +16,7 @@
   "scripts": {
     "format": "prettier --no-error-on-unmatched-pattern --write \"**/*.{js,ts,json,md}\" \"*.{cjs,mjs,cts,mts}\"",
     "format:check": "prettier --no-error-on-unmatched-pattern --check \"**/*.{js,ts,json,md}\" \"*.{cjs,mjs,cts,mts}\"",
+    "postinstall": "patch-package --error-on-fail",
     "lint": "eslint \"**/*.{js,ts}\" \"*.{cjs,mjs,cts,mts}\" --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
     "lint:fix": "eslint --fix \"**/*.{js,ts}\" \"*.{cjs,mjs,cts,mts}\" --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
     "start": "tsx src/main_runtime.ts",
@@ -25,7 +26,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@rivo-ts/math": "^0.0.0-dev.20240707.5",
+    "@rivo-ts/math": "0.0.0-dev.20240707.5",
     "@types/node": "^26.6.3",
     "@typescript-eslint/eslint-plugin": "^8.71.0",
     "@typescript-eslint/parser": "^8.71.0",
@@ -36,6 +37,7 @@
     "eslint-plugin-prettier": "^5.5.6",
     "eslint-plugin-sonarjs": "^4.2.2",
     "eslint-plugin-sort-destructure-keys": "^3.0.0",
+    "patch-package": "^8.0.1",
     "prettier": "^3.9.9",
     "prettier-plugin-packagejson": "^3.0.2",
     "rivo": "^0.0.0-dev.20240701",
