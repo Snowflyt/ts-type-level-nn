@@ -3,6 +3,7 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
+    "types": ["node"],
 
     /* Bundler mode */
     "moduleResolution": "Bundler",

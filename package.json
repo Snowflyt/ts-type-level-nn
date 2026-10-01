@@ -14,30 +14,37 @@
   "author": "Snowflyt <gaoge011022@163.com>",
   "type": "module",
   "scripts": {
+    "format": "prettier --no-error-on-unmatched-pattern --write \"**/*.{js,ts,json,md}\" \"*.{cjs,mjs,cts,mts}\"",
+    "format:check": "prettier --no-error-on-unmatched-pattern --check \"**/*.{js,ts,json,md}\" \"*.{cjs,mjs,cts,mts}\"",
+    "lint": "eslint \"**/*.{js,ts}\" \"*.{cjs,mjs,cts,mts}\" --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
+    "lint:fix": "eslint --fix \"**/*.{js,ts}\" \"*.{cjs,mjs,cts,mts}\" --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
     "start": "tsx src/main_runtime.ts",
-    "format": "prettier --no-error-on-unmatched-pattern --write **/*.{js,ts,json,md} *.{cjs,mjs,cts,mts}",
-    "lint": "eslint **/*.{js,ts} *.{cjs,mjs,cts,mts} --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
-    "lint:fix": "eslint --fix **/*.{js,ts} *.{cjs,mjs,cts,mts} --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --max-warnings 0",
-    "test": "typroof"
+    "test": "npm run test:types",
+    "test:types": "node node_modules/typescript7/bin/tsc --noEmit",
+    "test:typroof": "typroof"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@rivo-ts/math": "^0.0.0-dev.20240707.5",
-    "@types/eslint": "^8.56.10",
-    "@types/node": "^20.14.10",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
-    "@typescript-eslint/parser": "^7.15.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-sonarjs": "^0.25.1",
-    "eslint-plugin-sort-destructure-keys": "^2.0.0",
-    "prettier": "^3.3.2",
-    "prettier-plugin-packagejson": "^2.5.0",
+    "@types/node": "^26.6.3",
+    "@typescript-eslint/eslint-plugin": "^8.71.0",
+    "@typescript-eslint/parser": "^8.71.0",
+    "eslint": "^10.11.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-sonarjs": "^4.2.2",
+    "eslint-plugin-sort-destructure-keys": "^3.0.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-packagejson": "^3.0.2",
     "rivo": "^0.0.0-dev.20240701",
-    "tsx": "^4.16.2",
-    "typescript": "^5.5.3",
-    "typroof": "^0.2.9"
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript7": "npm:typescript@^7.0.2",
+    "typroof": "^0.6.0"
+  },
+  "engines": {
+    "node": "^22.18.0 || >=24.0.0"
   }
 }
